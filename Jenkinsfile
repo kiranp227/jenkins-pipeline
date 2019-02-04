@@ -10,6 +10,7 @@ node () {
 	    sh label: '', script: '''pwd
 	    ls -l repo1
 	    echo seccond
-	    ls -l repo2'''
+	    ls -l repo2
+	    cal'''
     
 }}
