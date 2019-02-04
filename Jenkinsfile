@@ -11,6 +11,6 @@ node () {
 	    ls -l repo1
 	    echo seccond
 	    ls -l repo2
-	    echo done'''
+	    echo done123'''
     
 }}
