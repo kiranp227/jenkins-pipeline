@@ -1,4 +1,4 @@
-node () {
+node samsung-pay {
 
 	stage ('multi_scm - Checkout') {
 	    dir('repo1') {
