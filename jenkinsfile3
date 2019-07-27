@@ -12,7 +12,7 @@ pipeline {
 	                    dir('repo2') {
 	                        git 'https://github.com/kiranp227/salt.git'
 	                    }
-                    }
+                         }
                  stage ('Second Stage') {
                      dir('repo3'){
 	                        checkout([$class: 'GitSCM',
@@ -21,8 +21,15 @@ pipeline {
 	                        userRemoteConfigs: [[url: 'https://github.com/kiranp227/jenkins-pipeline.git']]
 	                        ])
 	                    }
-                    }
-            stage ('Third Stage') {
+                        }
+		      }
+		    }
+		 } 
+	       }
+	       // stage DEV is finished
+		 
+         stage ('QA') {
+	     steps {
 	                  sh label: '', script: '''pwd
 	                  ls -l repo1
 	                  echo seccond
@@ -32,9 +39,8 @@ pipeline {
 	                  echo Its Great'''
                }
             }
+	    // stage QA is finished
            
-          }
-       }
-     }
   }
 }
+
