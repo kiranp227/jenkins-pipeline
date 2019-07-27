@@ -10,7 +10,9 @@ pipeline {
 	                        git 'https://github.com/kiranp227/game-of-life.git'
 	                    }
 	                    dir('repo2') {
-	                        git 'https://github.com/kiranp227/salt.git'
+			        checkout([$class: 'GitSCM',
+				branches: [[name: 'master']],
+				userRemoteConfigs: [[url: 'https://github.com/kiranp227/salt.git']]
 	                    }
                          }
                  stage ('Second Stage') {
