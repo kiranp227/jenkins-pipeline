@@ -1,0 +1,40 @@
+pipeline {
+    agent any
+    stages {
+        stage('DEV') {
+            steps {
+              script {
+                node () {
+                  stage ('multi_scm - Checkout') {
+	                    dir('repo1') {
+	                        git 'https://github.com/kiranp227/game-of-life.git'
+	                    }
+	                    dir('repo2') {
+	                        git 'https://github.com/kiranp227/salt.git'
+	                    }
+                    }
+                 stage ('Second Stage') {
+                     dir('repo3'){
+	                        checkout([$class: 'GitSCM',
+	                        branches: [[name: 'test1']],
+	                        extensions: [[$class: 'WipeWorkspace']],
+	                        userRemoteConfigs: [[url: 'https://github.com/kiranp227/jenkins-pipeline.git']]
+	                        ])
+	                    }
+                    }
+            stage ('Third Stage') {
+	                  sh label: '', script: '''pwd
+	                  ls -l repo1
+	                  echo seccond
+	                  ls -l repo2
+	                  echo done123
+	                  ls -l repo3
+	                  echo Its Great'''
+               }
+            }
+           
+          }
+       }
+     }
+  }
+}
