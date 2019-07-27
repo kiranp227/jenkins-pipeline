@@ -12,7 +12,7 @@ pipeline {
 	                    dir('repo2') {
 			        checkout([$class: 'GitSCM',
 				branches: [[name: 'master']],
-				userRemoteConfigs: [[url: 'https://github.com/kiranp227/salt.git']]
+				userRemoteConfigs: [[url: 'https://github.com/kiranp227/salt.git']]])
 	                    }
                          }
                  stage ('Second Stage') {
