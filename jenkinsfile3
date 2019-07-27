@@ -18,7 +18,7 @@ pipeline {
                  stage ('Second Stage') {
                      dir('repo3'){
 	                        checkout([$class: 'GitSCM',
-	                        branches: [[name: 'test1']],
+	                        branches: [[name: 'master']],
 	                        extensions: [[$class: 'WipeWorkspace']],
 	                        userRemoteConfigs: [[url: 'https://github.com/kiranp227/jenkins-pipeline.git']]
 	                        ])
