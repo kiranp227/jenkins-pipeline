@@ -11,6 +11,7 @@ node () {
 	    ls -l repo1
 	    echo seccond
 	    ls -l repo2
-	    echo done123'''
+	    echo done123
+	    docker --tlsverify --tlscacert=ca.pem --tlscert=cert.pem --tlskey=key.pem -H=ip-172-31-94-92:2376'''
     
 }}
