@@ -25,7 +25,7 @@ pipeline {
 	                  ls -l repo2
 	                  echo done123
 	                  ls -l repo3
-	                  echo Its Great now'''
+	                  echo Its Great to see now'''
      
                  }
              }
