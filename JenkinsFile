@@ -19,5 +19,13 @@ pipeline {
                 sh 'docker --tlsverify --tlscacert=/home/ubuntu/ca.pem --tlscert=/home/ubuntu/cert.pem --tlskey=/home/ubuntu/key.pem \
                 -H=jenkins-slave:2376 build -t kiranp227/tomcat-pipeline:${BUILD_ID} gameoflife-web/'
                 }}
+        stage('push to docker hub'){
+            steps{
+                withDockerRegistry(credentialsId: 'dockerhub-creds', url: 'https://hub.docker.com') {
+                               sh 'docker --tlsverify --tlscacert=/home/ubuntu/ca.pem --tlscert=/home/ubuntu/cert.pem \
+                               --tlskey=/home/ubuntu/key.pem -H=jenkins-slave:2376 push kiranp227/tomcat-pipeline:${BUILD_ID}'
+                            }
+                }
+          }
     }
  }
