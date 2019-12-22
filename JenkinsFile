@@ -1,0 +1,10 @@
+pipeline {
+    agent any
+    stages {
+        stage('checkout') {
+            steps {
+                 git credentialsId: 'Git-Credentials', url: 'https://github.com/kiranp227/game-of-life.git'
+                 }
+        }
+   }
+}
