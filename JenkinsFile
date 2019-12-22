@@ -1,5 +1,5 @@
 pipeline {
-    agent slave-jenkins-one
+    agent any
     stages {
         stage('checkout') {
             steps {
