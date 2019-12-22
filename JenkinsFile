@@ -1,10 +1,19 @@
 pipeline {
     agent any
+    tools {
+        maven 'pipleine-maven'
+    }
     stages {
         stage('checkout') {
             steps {
                  git credentialsId: 'Git-Credentials', url: 'https://github.com/kiranp227/game-of-life.git'
                  }
+            }
+        stage('build the app'){
+            steps{
+                sh 'mvn clean install'
+                 }
+            }
         }
    }
 }
