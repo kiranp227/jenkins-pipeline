@@ -1,0 +1,39 @@
+library "helloworld-library"
+
+pipeline {
+    agent any
+    tools {
+        maven 'pipleine-maven'
+    }
+    stages {
+        stage('Git checkout') {
+            steps { 
+                    gitcheckout()
+                 
+                 }
+            }
+            
+            
+        stage('build the app'){
+            steps{
+                  app()
+                 }
+            }
+            
+            
+        stage('build the Image'){
+            steps{
+                  image()
+                 }
+            }
+            
+        
+        stage('deploy to Docker Environment'){
+            steps{
+                  deploy()
+                 }
+            }  
+       
+     }  
+
+}
