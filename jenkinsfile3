@@ -38,7 +38,7 @@ pipeline {
 	                  ls -l repo2
 	                  echo done123
 	                  ls -l repo3
-	                  echo Its Great'''
+	                  echo Its Great its modified'''
                }
             }
 	    // stage QA is finished
